@@ -1,0 +1,637 @@
+<!--
+	作者：Sariay
+	时间：2018-09-25
+	描述：There may be a bug, but don't worry, QiLing(器灵) says that it can work normally!
+-->
+
+	<!DOCTYPE html>
+	<html class="scrollbar">
+		
+
+<head><meta name="generator" content="Hexo 3.8.0">
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title>
+    
+      微服务架构 | zrb的博客
+    
+  </title>
+  <meta name="author" content="zrb">
+  <meta name="keywords" content>
+  <meta name="description" content>
+	<!-- favicon -->
+  <link rel="shortcut icon" href="/img/favicon.ico">
+
+  <!-- css -->
+  <link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+    <!-- jquery -->
+	<script src="/js/jquery-2.1.1.min.js"></script>
+
+  <!-- leancloud -->
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+<script src="/js/leancloud.js"></script>
+</head>
+	<body>
+		<!-- Preloader -->
+
+	<div id="preloader">
+		<div class="pre-container">
+			
+				<div class="transition">
+					<div class="three-bounce1"></div>
+					<div class="three-bounce2"></div>
+					<div class="three-bounce3"></div>
+				</div>
+						
+		</div>
+	</div>
+
+
+<!-- header -->
+<header class="fixbackground" data-img-mode="normal" data-normal-src="/img/1.jpg" data-random-max="110" data-random-src="https://sariay.github.io/Random-img/">
+	<div class="mask">
+		<div class="h-header">
+			<div id="logo-S">
+				
+					<a href="/">
+						<img src="/img/logo.png" alt="Logo">
+					</a>
+				
+			</div>
+			<!-- Navigation in header(id="navigation-S") -->
+			<div id="navigation-S">
+				<ul>
+					
+						<li class="menu-home">
+							<a href="/" class="menu-item-home">主页</a>
+						</li>
+					
+						<li class="menu-archive">
+							<a href="/archives" class="menu-item-archive">归档</a>
+						</li>
+					
+						<li class="menu-categories">
+							<a href="/categories" class="menu-item-categories">分类</a>
+						</li>
+					
+						<li class="menu-tags">
+							<a href="/tags" class="menu-item-tags">标签</a>
+						</li>
+					
+						<li class="menu-about">
+							<a href="/about" class="menu-item-about">关于</a>
+						</li>
+					
+						<li class="menu-gallery">
+							<a href="/gallery" class="menu-item-gallery">相册</a>
+						</li>
+					
+
+					
+				</ul>			
+			</div>				
+		</div>
+
+		<div class="h-body">	
+			<!-- motto -->
+			
+				<div id="page-motto">
+					<p class="motto">
+						
+					</p>
+				</div>
+			
+
+			<div id="navigation-H">
+				<!-- Page title -->
+				<p>
+					
+						当前文章&nbsp;:&nbsp;《微服务架构》
+					
+				</p>
+				<!-- Progress bar -->
+				<div id="progress-bar"></div>
+
+				<!-- Progress percent -->
+				<div id="progress-percentage">
+					<h1>0.0%</h1>
+				</div>
+			</div>
+		</div>
+		
+		<!-- others: such as time... -->			
+		<div class="h-footer">
+			<ul>
+				<li>
+					<a><i class="fa fa-camera-retro" onclick="changeHeaderBg()"></i>切换背景</a>
+				</li>
+				<li>
+					<a href="javascript:;" id="read-more"><i class="fa fa-angle-double-down"></i>继续阅读</a>
+				</li>
+				<li>
+					<a href="https://github.com/Sariay/hexo-theme-Annie" target="_blank"><i class="fa fa-download"></i>克隆主题</a>
+				</li>
+			</ul>
+		</div>
+		
+		<!-- This is only a demo, please go to "https://time.is" to set your city time! -->
+<style type="text/css">
+	.header-date {
+		position: absolute;
+		left: 40px;
+		bottom: 30px;
+		writing-mode: tb-rl;
+		font-size: 36px;
+	}	
+	.header-date a {
+		border-bottom: none;
+	}
+	@media only screen and (max-width: 768 ) {
+		.header-date {
+			position: absolute;
+			left: 40px;
+			bottom: 30px;
+			writing-mode: tb-rl;
+			font-size: 20px;
+		}			
+	}
+</style>
+<div class="header-date">
+	<a href="https://time.is/Beijing" id="time_is_link" rel="nofollow"></a>
+	<span id="Beijing_z43d"></span>
+</div>
+<script src="//widget.time.is/zh.js"></script>
+<script>
+	time_is_widget.init({
+		Beijing_z43d:{
+			template:"DATE", 
+			date_format:"year年 monthname dnum日"
+		}
+	});
+</script>
+</div></header>
+
+<!-- Navigation in div(id="navigation-H") -->
+<a class="nav-trigger">
+	<span></span>
+</a>
+
+<nav class="nav-container" id="cd-nav">
+	<div class="nav-header">
+		<h3>Navigation</h3>
+		<a href="javascript:;" class="nav-close"></a>
+	</div>
+	<div class="nav-body">
+		<ul>
+			
+				<li class="menu-home">
+					<a href="/" class="menu-item-home">主页</a>
+				</li>
+			
+				<li class="menu-archive">
+					<a href="/archives" class="menu-item-archive">归档</a>
+				</li>
+			
+				<li class="menu-categories">
+					<a href="/categories" class="menu-item-categories">分类</a>
+				</li>
+			
+				<li class="menu-tags">
+					<a href="/tags" class="menu-item-tags">标签</a>
+				</li>
+			
+				<li class="menu-about">
+					<a href="/about" class="menu-item-about">关于</a>
+				</li>
+			
+				<li class="menu-gallery">
+					<a href="/gallery" class="menu-item-gallery">相册</a>
+				</li>
+			
+
+			
+		</ul>
+	</div>
+
+	<div class="nav-footer">
+		<ul>
+	
+		
+			<li>
+				<a href="http://github.com/" title="Github" target="_blank">
+					<i class="fa fa-github"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="http://github.com/" title="Weibo" target="_blank">
+					<i class="fa fa-weibo"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="mailto:http://github.com/" title="Email" target="_blank">
+					<i class="fa fa-envelope-o"></i>
+				</a>
+			</li>
+		
+
+		
+			<li>
+				<a href="http://github.com/" title="QQ" target="_blank">
+					<i class="fa fa-qq"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="http://github.com/" title="Twitter" target="_blank">
+					<i class="fa fa-twitter"></i>
+				</a>
+			</li>
+		
+	 
+</ul>
+	</div>
+</nav>
+
+		
+		<!--main-->
+		<main>
+			<div class="layout-post">
+	
+	
+	<div class="article-title">
+		
+	<a href="/2019/03/27/Microservice/" itemprop="url">
+		微服务架构
+	</a>
+
+	</div>
+
+	<div class="article-meta">
+		<span>
+			
+	发布于
+	<a href="/2019/03/27/Microservice/" itemprop="url">
+		<time datetime="2019-03-27T10:08:25.612Z" itemprop="datePublished">
+	  		2019-03-27
+	  </time>
+	</a> 
+
+	/
+	更新于
+	<a href="/2019/03/27/Microservice/" itemprop="url">
+		<time datetime="2019-03-27T10:08:25.612Z" itemprop="dateUpdated">
+	  		2019-05-22
+	  </time>
+	</a> 	
+
+		</span>
+		/
+		<span>
+			<i class="fa fa-tags"></i>
+					
+		</span>
+		/
+		
+
+    <span class="leancloud_visitors" id="/2019/03/27/Microservice/_visitors" data-url="/2019/03/27/Microservice/" data-title="微服务架构">
+        热度
+        <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+    </span>
+    
+    /
+
+
+
+    <span class="leancloud_likes" id="/2019/03/27/Microservice/_likes" data-url="/2019/03/27/Microservice/" data-title="微服务架构" rel="unlike">
+        喜欢
+        <i class="fa fa-heart"></i>
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
+
+	</div>
+
+	<div class="article-content" id="article-content">
+		<h2 id="1-初识微服务架构"><a href="#1-初识微服务架构" class="headerlink" title="1.初识微服务架构"></a>1.初识微服务架构</h2><p>微服务架构说白了就是一种系统架构上的设计风格，它的主要特色就是将原本独立的系统、大而全的系统拆分成若干个小型服务，这些小服务都是一个独立的进程在运行，而且服务之间可以通过HTTP接口互相调用以保障业务的完整性。拆分成若干小型服务后，每个服务都可以单独管理了，这样上线后有个别服务有bug或需求变更时，只需要动需要变动的服务即可，避免了独立系统 牵一发而动全身的情况。而且服务独立部署、独立管理，有服务负载增加时，扩展该服务的节点即可，而且扩展是动态、无感知的。</p>
+<h3 id="2-微服务的由来"><a href="#2-微服务的由来" class="headerlink" title="2.微服务的由来"></a>2.微服务的由来</h3><p>微服务最早由Martin Fowler与James Lewis于2014年共同提出，微服务架构风格是一种使用一套小服务来开发单个应用的方式途径，每个服务运行在自己的进程中，并使用轻量级机制通信，通常是HTTP API，这些服务基于业务能力构建，并能够通过自动化部署机制来独立部署，这些服务使用不同的编程语言实现，以及不同数据存储技术，并保持最低限度的集中式管理。</p>
+<h3 id="3-为什么需要微服务？"><a href="#3-为什么需要微服务？" class="headerlink" title="3. 为什么需要微服务？"></a>3. 为什么需要微服务？</h3><p> 在传统的IT行业软件大多都是各种独立系统的堆砌，这些系统的问题总结来说就是扩展性差，可靠性不高，维护成本高。到后面引入了SOA服务化，但是，由于 SOA 早期均使用了总线模式，这种总线模式是与某种技术栈强绑定的，比如：J2EE。这导致很多企业的遗留系统很难对接，切换时间太长，成本太高，新系统稳定性的收敛也需要一些时间。最终 SOA 看起来很美，但却成为了企业级奢侈品，中小公司都望而生畏。 exo.io/docs/writing.html)</p>
+<h3 id="4-开发准备"><a href="#4-开发准备" class="headerlink" title="4.开发准备"></a>4.开发准备</h3><h5 id="4-1-Dubbo基本概念解释"><a href="#4-1-Dubbo基本概念解释" class="headerlink" title="4.1 Dubbo基本概念解释"></a>4.1 Dubbo基本概念解释</h5><p>Dubbo是一种分布式服务框架。 Webservice也是一种服务框架，但是webservice并不是分布式的服务框架，他需要结合F5实现负载均衡。因此，dubbo除了可以提供服务之外，还可以实现软负载均衡。它还提供了两个功能Monitor 监控中心和调用中心。这两个是可选的，需要单独配置。Dubbo技术架构图如下：</p>
+<p><img src="/2019/03/27/Microservice/20160626200720063.jpg" alt></p>
+<p>我们解释以下这个架构图：</p>
+<p>Consumer服务消费者，Provider服务提供者。Container服务容器。消费当然是invoke提供者了，</p>
+<p>服务的提供者对于服务的消费者是透明的</p>
+<p>服务提供者先启动start，然后注册register服务。</p>
+<p>消费订阅subscribe服务，如果没有订阅到自己想获得的服务，它会不断的尝试订阅。新的服务注册到注册中心以后，注册中心会将这些服务通过notify到消费者。官方推荐使用zookeeper作为注册中心。</p>
+<p>Monitor是一个监控中心</p>
+<h5 id="4-2-linux安装dubbo与zookeeper"><a href="#4-2-linux安装dubbo与zookeeper" class="headerlink" title="4.2 linux安装dubbo与zookeeper"></a>4.2 linux安装dubbo与zookeeper</h5><p>开发前需要准备</p>
+<p><img src="/2019/03/27/Microservice/devs.png" alt></p>
+<p>1.首先我们在/usr/local/ 下创建 java,zookeeper,tomcat目录 </p>
+<p>cd /usr/local</p>
+<p>mkdir java</p>
+<p>mkdir zookeeper</p>
+<p>mkdir tomcat</p>
+<p>2.创建完成之后 将准备好的jdk,zookeeper,tomcat分别解压到对应的文件下</p>
+<p>tar -vxf 文件名</p>
+<p>3.解压完成后开始配置环境变量</p>
+<p>vim/etc/profile   打开后添加如下配置信息：</p>
+<p><img src="/2019/03/27/Microservice/jdk.png" alt></p>
+<p>重新加载配置文件 </p>
+<p>source /etc/profile</p>
+<p>最后检查jdk是否安装成功</p>
+<p>java -version</p>
+<p><img src="/2019/03/27/Microservice/jdk1.png" alt></p>
+<p>4.安装tomcat</p>
+<p>tomcat解压完成之后 进入tomcat目录 </p>
+<p>cd conf</p>
+<p>vim  server.xml</p>
+<p><img src="/2019/03/27/Microservice/port.png" alt></p>
+<p>修改 端口为8888</p>
+<p>接下来在防火墙开放端口 </p>
+<p>firewall-cmd –zone=public –add-port=8888/tcp –permanent 添加8888端口</p>
+<p>firewall-cmd –reload 重启防火墙</p>
+<p>到tomcat的bin目录下启动tomcat </p>
+<p>./startup.bat</p>
+<p>可以查看启动的日期 </p>
+<p>到tomcat 目录下的logs目录下</p>
+<p>cat catalina.out就可以查看启动日志</p>
+<p><img src="/2019/03/27/Microservice/tomcatstart.png" alt></p>
+<p>启动之后在 本机输入 ip:8888 就可以看到tomcat的界面</p>
+<p><img src="/2019/03/27/Microservice/tomcat.png" alt></p>
+<p>5.安装zookeeper注册中心</p>
+<p>进入zookeeper文件夹解压zookeeper的压缩包</p>
+<p>在zookeeper的根目录下创建一个data的文件夹用来存放log信息</p>
+<p>进入 conf文件夹下修改 zoo_sample.cfg 为 zoo.cfg</p>
+<p>修改zoo.cfg中的datalogDir路径</p>
+<p>cd conf</p>
+<p>vim zoo.cfg</p>
+<p><img src="/2019/03/27/Microservice/zoocfg.png" alt></p>
+<p>配置文件中参数说明：</p>
+<p>　　　　tickTime : 服务器与客户端之间交互的基本时间单元（ms）</p>
+<p>　　　　dataDir : 保存zookeeper数据路径</p>
+<p>　　　　dataLogDir : 保存zookeeper的日志路径，当此配置不存在时默认路径与dataDir一致</p>
+<p>　　　　clientPort : 客户端访问zookeeper时经过服务器端时的端口号</p>
+<p>配置zookeeper环境变量 </p>
+<p>vi /etc/profile</p>
+<p><img src="/2019/03/27/Microservice/zookeeperpath.png" alt></p>
+<p>重新配置</p>
+<p>source /etc/profile</p>
+<p>启动zookeeper</p>
+<p>切换到zookeeper的bin目录下</p>
+<p>./zkServer.sh start 启动服务</p>
+<p>./zkServer.sh stop 停止服务</p>
+<p>6.安装dubbo-admin</p>
+<p>1.将dubbo-admin-2.5.4.war 包放在解压好的Tomcat的webapps 文件下</p>
+<p>启动tomcat就可以自动解压dubbo了</p>
+<p>打开服务器访问ip:8888/dubbo-admin-2.5.4</p>
+<p>登录账户和密码均为root</p>
+<p><img src="/2019/03/27/Microservice/dubbo.png" alt></p>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>本期先安装需要用到的东西，具体的用法会在后面几篇博客中写出。</p>
+<p>第一次写博客 开心！</p>
+	
+	</div>
+	
+	<div id="current-post-cover" data-scr="/img/cart_cover.jpg"></div>
+
+	<!-- relate post, comment...-->
+	<div class="investment-container">
+		<div class="investment-header">
+			<div class="investment-title-1">
+				<div class="on">相关文章</div>
+				<div>评论</div>
+			</div>
+			<div class="investment-title-2">	            
+				
+	<span>
+		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
+		
+			
+	</span>
+      		
+			</div>	
+		</div>
+		
+		<div class="investment-content">
+			<div class="investment-content-list">
+				
+
+<div class="relate-post">
+	<ul>
+		
+	</ul>
+</div>	
+			</div>
+			<div class="investment-content-list">
+				<div class="layout-comment">
+
+	
+
+		
+
+			<!-- I don't know 【表情】-->
+			
+		
+		
+	
+
+</div>
+			</div>
+		</div>	
+	</div>
+</div>
+
+
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+
+	<script>
+		var appid = 'dX--',
+            appkey = 'dx--';	  
+        AnnieLeancloud(appid, appkey);         
+	</script>
+    
+
+
+ 
+
+<!-- show math formula -->
+
+
+
+
+<!-- TODO: There seems to be a bug when you close the post gallery! -->
+<link rel="stylesheet" href="/plugin/lightgallery/css/lightgallery.css">
+<script src="/plugin/lightgallery/js/jquery-1.11.0.min.js"></script>
+<script src="/plugin/lightgallery/js/lightgallery-all.min.js"></script>
+
+<script type="text/javascript">
+	var postTitle = $('.article-title a').text() ? $('.article-title a').text() : "No post title!";
+	$('.article-content img').each(function() {
+		var imgPath = $(this).attr('src'),
+			imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
+		$(this).wrap('<div class="img-responsive" data-src="' + imgPath + '" data-responsive="' + imgPath + '" data-sub-html="<p>图片 ' + imgTitle + '</p><h4>文章' + postTitle + '</h4>"></div>');
+	});
+
+	$('.article-content').lightGallery({
+		mode: 'lg-slide',
+		selector: '.img-responsive',
+		share: false,
+		zoom: false,
+		download: false
+	});
+	//TODO：支持video
+</script>
+
+<!--
+	时间：2018-11-17
+	描述：
+		插件名称：katelog.min.js
+		插件作者：KELEN
+		插件来源: https://github.com/KELEN/katelog
+-->
+
+		
+
+		<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
+		<script src="/plugin/toc/katelog.min.js"></script>
+
+		
+	
+		</main>
+		
+		<!--footer-->
+		<footer>
+	<div class="social">
+		<ul>
+	
+		
+			<li>
+				<a href="http://github.com/" title="Github" target="_blank">
+					<i class="fa fa-github"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="http://github.com/" title="Weibo" target="_blank">
+					<i class="fa fa-weibo"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="mailto:http://github.com/" title="Email" target="_blank">
+					<i class="fa fa-envelope-o"></i>
+				</a>
+			</li>
+		
+
+		
+			<li>
+				<a href="http://github.com/" title="QQ" target="_blank">
+					<i class="fa fa-qq"></i>
+				</a>
+			</li>
+		
+		
+			<li>
+				<a href="http://github.com/" title="Twitter" target="_blank">
+					<i class="fa fa-twitter"></i>
+				</a>
+			</li>
+		
+	 
+</ul>
+	</div>
+		
+	<div class="copyright">
+		<p>
+			 
+				&copy;2017 - 2019, content by zrb. All Rights Reserved.
+			
+			
+			
+
+	<!-- busuanzi -->
+	<!-- busuanzi -->
+
+		
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+
+		<span id="busuanzi_container_page_pv">
+	  		本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+		</span>
+
+	
+
+
+
+
+		</p>
+		<p>
+			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay. 					
+		</p>
+	</div>		
+</footer>
+		
+    <!-- set '1' to show motto in all pages! -->
+
+	<script src="/js/motto.js"></script>
+	<script type="text/javascript">
+		$(".motto").html( getMingYanContent() );
+	</script>	
+
+
+
+
+
+
+    <script src="/js/love.js"></script>
+
+
+<!--back to top-->
+
+    
+	<div id="totop">
+  		<a href="javascript:;" name="TOTOP" class="fa fa-arrow-up"></a>
+	</div>
+	<div id="tobuttom">
+		<a href="javascript:;" name="TOBUTTOM" class="fa fa-arrow-down"></a>
+	</div>
+ 
+
+
+ 
+
+<script src="/js/vibrant.js"></script>
+<script src="/js/chinese.js"></script>
+<script src="/js/main.js"></script>
+	</body>
+	</html>
